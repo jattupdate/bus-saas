@@ -1,8 +1,10 @@
 "use client";
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
+import { useRouter } from 'next/navigation'; // Import Router
 
 export default function LoginPage() {
+  const router = useRouter(); // Initialize Router
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,7 +20,8 @@ export default function LoginPage() {
     if (error) {
       setMessage('Error: ' + error.message);
     } else {
-      setMessage('✅ Login Successful! Welcome Boss.');
+      // SUCCESS! Redirect to Dashboard
+      router.push('/dashboard');
     }
     setLoading(false);
   };
@@ -33,7 +36,7 @@ export default function LoginPage() {
     if (error) {
       setMessage('Error: ' + error.message);
     } else {
-      setMessage('✅ Account Created! Check email to verify.');
+      setMessage('✅ Account Created! Check your email to verify.');
     }
     setLoading(false);
   };
