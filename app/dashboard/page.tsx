@@ -65,7 +65,10 @@ export default function Dashboard() {
 
         {/* Action Buttons */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <button className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition text-left border border-gray-200 group">
+            <button 
+                onClick={() => router.push('/dashboard/add-bus')} // <-- YE LINE ADD KAREIN
+                className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition text-left border border-gray-200 group"
+            >
                 <h3 className="text-lg font-bold text-blue-600 group-hover:text-blue-800">+ Add New Bus</h3>
                 <p className="text-gray-400 text-sm mt-1">Register a new vehicle to your fleet</p>
             </button>
